@@ -25,4 +25,5 @@ kwriteconfig6 --file kscreenlockerrc --group Daemon --key Autolock false && \
 kwriteconfig6 --file kscreenlockerrc --group Daemon --key LockGrace 0 && \
 kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout 0 && \
 kwriteconfig6 --file systemsettingsrc --group systemsettings_sidebar_mode --key HighlightNonDefaultSettings true && \
+plasma-apply-lookandfeel --apply org.kde.breezedark.desktop && \
 echo "===== SUCCESS, RUN [reboot], FINISHED ====="
