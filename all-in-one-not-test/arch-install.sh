@@ -53,4 +53,4 @@ echo ">>> Preparing to end the installation..."
 cp /etc/pacman.d/mirrorlist.bak /mnt/etc/pacman.d/
 umount -R /mnt
 
-echo ">>> Installation complete! You can now type 'reboot' to restart your system and run 'after-arch-install.sh' to config others."
+echo ">>> Installation complete! You need reboot and run 'after-arch-install.sh'."
