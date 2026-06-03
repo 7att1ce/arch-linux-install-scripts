@@ -50,6 +50,7 @@ genfstab -U /mnt | tee -a /mnt/etc/fstab
 echo ">>> Entering chroot environment for system configuration..."
 cp ./arch-chroot-install.sh /mnt/root
 arch-chroot /mnt /root/arch-chroot-install.sh
+rm /mnt/root/arch-chroot-install.sh
 
 echo ">>> Preparing to end the installation..."
 cp /etc/pacman.d/mirrorlist.bak /mnt/etc/pacman.d/
