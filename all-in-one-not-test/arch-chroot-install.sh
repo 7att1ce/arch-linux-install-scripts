@@ -6,6 +6,9 @@ SWAP_PARTITION="${DISK}2"
 ROOT_PARTITION="${DISK}3"
 ROOT_PARTUUID=$(blkid -s PARTUUID -o value ${ROOT_PARTITION})
 
+USER_PASSWORD="password"
+ROOT_PASSWORD="password"
+
 echo ">>> Setting timezone..."
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
@@ -21,7 +24,7 @@ echo ">>> Setting hostname..."
 echo "asus" | tee -a /etc/hostname
 
 echo ">>> Setting root password..."
-passwd
+echo "root:${ROOT_PASSWORD}" | chpasswd
 
 echo ">>> Installing and Configuring systemd-boot..."
 bootctl install
@@ -48,7 +51,7 @@ echo "%wheel ALL=(ALL:ALL) ALL" | tee /etc/sudoers.d/user-access
 chmod 0440 /etc/sudoers.d/user-access
 visudo -c
 useradd -m -G wheel user
-passwd user
+echo "user:${USER_PASSWORD}" | chpasswd
 
 echo ">>> Enabling essential servers..."
 systemctl enable NetworkManager.service

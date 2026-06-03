@@ -9,12 +9,13 @@ echo ">>> Erasing disk: ${DISK}..."
 wipefs --all ${DISK}
 
 echo ">>> Partitioning disk: ${DISK}..."
-parted ${DISK} --script mklabel gpt
-parted ${DISK} --script mkpart "EFI System" fat32 1MiB 1025MiB
-parted ${DISK} --script set 1 esp on
-parted ${DISK} --script mkpart "Linux swap" linux-swap 1025MiB 33793MiB
-parted ${DISK} --script mkpart "Linux root (x86-64)" ext4 33793MiB 100%
-parted ${DISK} --script type 3 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
+parted /dev/sda --script \
+    mklabel gpt \
+    mkpart "\"EFI System\"" fat32 1MiB 1025MiB \
+    set 1 esp on \
+    mkpart "\"Linux swap\"" linux-swap 1025MiB 33793MiB \
+    mkpart "\"Linux root (x86-64)\"" ext4 33793MiB 100% \
+    type 3 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
 partprobe ${DISK}
 sleep 2
 
@@ -47,7 +48,8 @@ echo ">>> Generating fstab..."
 genfstab -U /mnt | tee -a /mnt/etc/fstab
 
 echo ">>> Entering chroot environment for system configuration..."
-arch-chroot /mnt ./arch-chroot-install.sh
+cp ./arch-chroot-install.sh /mnt/root
+arch-chroot /mnt /root/arch-chroot-install.sh
 
 echo ">>> Preparing to end the installation..."
 cp /etc/pacman.d/mirrorlist.bak /mnt/etc/pacman.d/
