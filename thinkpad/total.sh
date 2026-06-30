@@ -42,7 +42,7 @@ pacstrap -K /mnt \
     libvdpau-va-gl libva-utils \
     vdpauinfo vulkan-tools \
     sof-firmware alsa-firmware \
-    alsa-ucm-conf alsa-utils \
+    alsa-utils \
     pipewire lib32-pipewire wireplumber \
     pipewire-audio pipewire-alsa \
     pipewire-pulse \
