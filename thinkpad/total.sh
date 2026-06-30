@@ -105,7 +105,6 @@ poweroff
 sudo pacman -Syu
 sudo pacman -S --needed noto-fonts noto-fonts-cjk noto-fonts-emoji
 sudo pacman -S --needed plasma-meta konsole dolphin qt6-multimedia-ffmpeg kwalletmanager
-sudo pacman -S --needed rog-control-center
 sudo pacman -S --needed fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki
 sudo pacman -S --needed firefox
 sudo pacman -S --needed btop
