@@ -38,7 +38,7 @@ pacstrap -K /mnt \
     mesa lib32-mesa \
     vulkan-intel lib32-vulkan-intel \
     vulkan-icd-loader lib32-vulkan-icd-loader \
-    intel-media-driver linux-firmware-intel \
+    intel-media-driver \
     libvdpau-va-gl libva-utils \
     vdpauinfo vulkan-tools \
     sof-firmware alsa-firmware \
