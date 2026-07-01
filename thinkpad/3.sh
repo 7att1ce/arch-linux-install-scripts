@@ -31,4 +31,8 @@ kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout 0
 kwriteconfig6 --file systemsettingsrc --group systemsettings_sidebar_mode --key HighlightNonDefaultSettings true
 plasma-apply-lookandfeel --apply org.kde.breezedark.desktop
 
+kwriteconfig6 --file powerdevilrc --group AC --group Performance --key PowerProfile power-saver
+kwriteconfig6 --file powerdevilrc --group Battery --group Performance --key PowerProfile power-saver
+kwriteconfig6 --file powerdevilrc --group LowBattery --group Performance --key PowerProfile power-saver
+
 echo "========== SUCCESS, RUN [reboot], FINISHED =========="
