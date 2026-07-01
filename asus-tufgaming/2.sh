@@ -35,7 +35,6 @@ systemctl enable systemd-resolved.service
 systemctl enable ModemManager.service
 systemctl enable bluetooth.service
 systemctl enable power-profiles-daemon.service
-systemctl enable asusd.service
 systemctl enable sshd.service
 systemctl enable firewalld.service
 systemctl enable plasmalogin.service
